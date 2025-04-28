@@ -93,6 +93,14 @@ header {
     margin-bottom: 1.5rem;
 }
 
+header .alert {
+    margin: 0 auto;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease-out;
+}
+
 header h1 {
     font-size: 2.5rem;
     font-weight: 700;
@@ -620,6 +628,12 @@ header p {
     color: navy;
 }
 
+#price-per-charger {
+    font-size: 2.0rem;
+    font-weight: bold;
+    color: navy;
+}
+
 #chargers-count-view {
     font-size: 2.0rem;
     font-weight: bold;
@@ -1007,6 +1021,18 @@ header p {
     }
 }
 
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 /* Media queries for different resolutions */
 @media screen and (min-width: 1920px) {
     .container {
@@ -1017,22 +1043,25 @@ header p {
 
 @media screen and (min-width: 2560px) {
     body {
-        margin-top: 80px; /* More space for navigation */
-        font-size: 1.05rem; /* Slightly larger base font */
+        margin-top: 80px;
+        /* More space for navigation */
+        font-size: 1.05rem;
+        /* Slightly larger base font */
     }
-    
+
     .container {
         max-width: 1800px;
         padding: 3.5rem;
         margin-top: 60px;
-        border-radius: 16px; /* More pronounced rounded corners */
+        border-radius: 16px;
+        /* More pronounced rounded corners */
     }
-    
+
     /* You might want to scale up other elements too */
     h1 {
         font-size: 2.5rem;
     }
-    
+
     .btn {
         padding: 0.75rem 1.5rem;
         font-size: 1.1rem;

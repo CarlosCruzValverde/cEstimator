@@ -70,13 +70,11 @@
     </nav>
 
     {% if get_flashed_messages() %}
-    <header>
-        {% for message in get_flashed_messages(with_categories=true) %}
-        <div class="alert alert-{{ message[0] }} text-center" role="alert">
-            {{ message[1] }}
-        </div>
-        {% endfor %}
-    </header>
+    {% for message in get_flashed_messages(with_categories=true) %}
+    <div class="alert alert-{{ message[0] }} mb-0" role="alert">
+        {{ message[1] }}
+    </div>
+    {% endfor %}
     {% endif %}
 
     <main class="container py-5 text-center">
@@ -87,9 +85,13 @@
         setTimeout(function () {
             var flashMessages = document.querySelectorAll('.alert');
             flashMessages.forEach(function (flashMessage) {
-                flashMessage.style.display = 'none';
+                flashMessage.style.transition = 'opacity 0.5s ease-out';
+                flashMessage.style.opacity = '0';
+                setTimeout(function () {
+                    flashMessage.remove();
+                }, 500); // Match this with the transition time
             });
-        }, 3000); // Adjust the time as needed
+        }, 3000); // Adjust display time as needed
     </script>
 
     <footer class="mb-5">
